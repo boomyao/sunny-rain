@@ -1,0 +1,18 @@
+html, body {
+  margin: 0;
+  user-select: none;
+  overflow: none;
+  
+}
+
+.background {
+  width: 100vw;
+  height: 100vh;
+  overflow: none;
+}
+
+.canvas {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(50, 150, 100, 0.2) , rgba(0, 0, 100, 0) );
+}
