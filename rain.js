@@ -6,16 +6,17 @@ var canvas = document.querySelector("#c"),
   height = 0,
   particles = [],
   particles = [],
-  particlePool = null,
-  config = {
-    minDropSize: 2,
-    maxDropSize: 5,
-    windForce: 10,
-    particlesPerSplash: 2,
-    dropsPerInterval: 10,
-    dropInterval: 100,
-    numParticles: 1000
-  };
+  particlePool = null;
+
+const config = {
+  minDropSize: 2,
+  maxDropSize: 5,
+  windForce: 2,
+  particlesPerSplash: 2,
+  dropsPerInterval: 20,
+  dropInterval: 20,
+  numParticles: 5000
+};
 
 // gui.add(config, 'minDropSize', 0, 10);
 // gui.add(config, 'maxDropSize', 0, 10);
@@ -84,7 +85,7 @@ Particle.id = 0;
 
 Particle.prototype.render = function(ctx) {
   ctx.fillStyle = "rgba(128,255,255,.8)";
-  ctx.fillRect(this.x, this.y, this.size /2, this.size * 1.5);
+  ctx.fillRect(this.x, this.y, this.size /4, this.size * 20);
   
   return this;
 }
@@ -206,14 +207,6 @@ var update = function(time) {
     } 
   });
   
-  ctx.fillStyle = "#FFFFFF";
-  ctx.font="12px Arial";
-  ctx.fillText("number of particles left in pool: " + particlePool.particles.length, 10, 50);
-  
-  ctx.fillText("total number of particles: " + particles.length + particlePool.particles.length, 10, 80);
-  
-  ctx.fillText("active particles: " + particles.length, 10, 110);
-  
   window.requestAnimationFrame(update);
   
   old_t = new_t;
@@ -230,4 +223,9 @@ Math.randomRange = function(min, max) {
   return Math.random() * (max - min) + min;
 }
 
-window.requestAnimationFrame(update);
+export default class {
+  constructor() {
+    this.config = config
+    window.requestAnimationFrame(update)
+  }
+}
