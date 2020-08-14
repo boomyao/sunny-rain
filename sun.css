@@ -11,15 +11,14 @@
 } */
 
 .circle {
-  position: fixed;
   width: 10vw;
   height: 10vw;
-  margin: -75px;
   background: red;
   border-radius: 50%;
 }
 
-#sun {
+.sun {
+  position: fixed;
   top: 50%;
   left: 50%;
   /* top: 19vh;
@@ -28,9 +27,8 @@
   box-shadow: 0 0 50px #ffff77;
 }
 
-#moon {
+.moon {
   background: #222;
-  left: 50%;
 }
 
 #perc {
